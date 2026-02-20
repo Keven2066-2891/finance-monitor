@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="权威媒体财经信息汇总，重点关注宏观信息（美联储、利率、财报等）">
+    <title>全球财经信息监控 - 2026/2/20</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        .update-time {
+            color: #999;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .news-item {
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        .news-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .news-source {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .news-title {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .news-meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .news-category {
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .category-macro {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .category-corporate {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .category-market {
+            background: #fff3e0;
+            color: #d97706;
+        }
+        .category-general {
+            background: #f8f9fa;
+            color: #6c757d;
+        }
+        .news-impact {
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .impact-high {
+            background: #f44336;
+            color: white;
+        }
+        .impact-medium {
+            background: #ff9800;
+            color: white;
+        }
+        .impact-low {
+            background: #4caf50;
+            color: white;
+        }
+        .news-summary {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .news-date {
+            color: #999;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .key-points {
+            margin-top: 15px;
+            padding: 10px;
+            background: #fafafa;
+            border-left: 3px solid #667eea;
+        }
+        .key-point {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+            color: #999;
+            font-size: 14px;
+        }
+        .footer-links {
+            margin-top: 20px;
+        }
+        .footer-link {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ 全球财经信息监控</h1>
+            <p class="subtitle">权威媒体财经信息汇总，重点关注宏观信息（美联储降息、大公司财报、大公司降息等）</p>
+            <p class="update-time">更新时间：2026/2/20 23:04:37</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-label">总信息数</div>
+                <div class="stat-value">10</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">宏观信息</div>
+                <div class="stat-value">4</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">公司财报</div>
+                <div class="stat-value">2</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">市场动态</div>
+                <div class="stat-value">4</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 最新财经信息（Top 10）</h2>
+            <div class="news-grid">
+                
+                <div class="news-item">
+                    <div class="news-source">Bloomberg</div>
+                    <h3 class="news-title">美联储宣布维持利率不变，市场预期落空</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-macro">宏观</span>
+                        <span class="news-impact impact-high">高影响</span>
+                    </div>
+                    <p class="news-summary">美联储联邦公开市场委员会(FOMC)宣布维持联邦基金利率在5.25%-5.50%区间不变，与市场预期相符。但暗示未来可能降息。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• macro: Fed</div><div class="key-point">• macro: interest rate</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">Goldman Sachs</div>
+                    <h3 class="news-title">高盛发布2026年Q1财报预期，预计华尔街银行盈利超预期</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-corporate">财报</span>
+                        <span class="news-impact impact-high">高影响</span>
+                    </div>
+                    <p class="news-summary">高盛分析师发布报告，预计2026年第一季度华尔街主要银行将保持强劲盈利能力，得益于利率环境改善和投行业务回暖。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• corporate: earnings</div><div class="key-point">• corporate: guidance</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">New York Times</div>
+                    <h3 class="news-title">纽约时报：美国通胀持续放缓，美联储年中可能考虑降息</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-macro">宏观</span>
+                        <span class="news-impact impact-high">高影响</span>
+                    </div>
+                    <p class="news-summary">纽约时报发布分析文章，指出美国通胀数据持续放缓趋势，强化了美联储可能在年中开始降息的市场预期。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• macro: inflation</div><div class="key-point">• macro: Fed</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">Wall Street Journal</div>
+                    <h3 class="news-title">华尔街日报：科技巨头财报季开启，AI 投资成重点</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-corporate">财报</span>
+                        <span class="news-impact impact-medium">中影响</span>
+                    </div>
+                    <p class="news-summary">华尔街日报报道，本季度美国科技巨头的财报季正式开启，AI 相关投资成为分析师和投资者关注的重点领域。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• corporate: earnings</div><div class="key-point">• market: AI</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">Reuters</div>
+                    <h3 class="news-title">路透社：欧洲央行维持利率不变，但暗示夏季可能降息</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-macro">宏观</span>
+                        <span class="news-impact impact-medium">中影响</span>
+                    </div>
+                    <p class="news-summary">路透社报道，欧洲央行维持主要再融资利率在4.5%不变，但行长拉加德暗示如果通胀继续放缓，可能在夏季开始降息周期。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• macro: interest rate</div><div class="key-point">• macro: ECB</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">Bloomberg</div>
+                    <h3 class="news-title">彭博社：美股市场震荡，投资者关注财报数据</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-market">市场</span>
+                        <span class="news-impact impact-medium">中影响</span>
+                    </div>
+                    <p class="news-summary">彭博社报道，美国股市今日出现震荡，主要受到投资者对即将发布的大型公司财报数据的关注影响。标普500指数和纳斯达克指数波动加剧。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• market: stocks</div><div class="key-point">• market: earnings</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">JPMorgan</div>
+                    <h3 class="news-title">摩根大通：美联储降息预期推动债券市场上涨</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-market">市场</span>
+                        <span class="news-impact impact-high">高影响</span>
+                    </div>
+                    <p class="news-summary">摩根大通分析师发布报告，指出市场对美联储降息的预期正在推动债券市场价格上涨，特别是长期国债收益率下降趋势明显。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• macro: Fed</div><div class="key-point">• market: bonds</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">Bank of America</div>
+                    <h3 class="news-title">美国银行：全球经济放缓，新兴市场面临挑战</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-macro">宏观</span>
+                        <span class="news-impact impact-high">高影响</span>
+                    </div>
+                    <p class="news-summary">美国银行全球经济研究团队发布报告，指出全球经济增速放缓趋势明显，新兴市场面临增长放缓和资本外流双重挑战。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• macro: GDP</div><div class="key-point">• macro: emerging markets</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">Citigroup</div>
+                    <h3 class="news-title">花旗集团：企业债违约风险上升，投资者需保持警惕</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-market">市场</span>
+                        <span class="news-impact impact-medium">中影响</span>
+                    </div>
+                    <p class="news-summary">花旗集团分析师警告，随着利率环境持续，企业债违约风险正在上升，投资者需要保持警惕，建议优化投资组合配置。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• market: debt</div><div class="key-point">• market: risk</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+                <div class="news-item">
+                    <div class="news-source">Wells Fargo</div>
+                    <h3 class="news-title">富国银行：加密货币市场波动加剧，机构投资者参与度提升</h3>
+                    <div class="news-meta">
+                        <span class="news-category category-market">市场</span>
+                        <span class="news-impact impact-low">低影响</span>
+                    </div>
+                    <p class="news-summary">富国银行数字资产研究团队指出，加密货币市场波动性持续加剧，但机构投资者的参与度正在提升，市场成熟度不断提高。</p>
+                    
+                    <div class="key-points">
+                        <div class="key-point">• market: crypto</div><div class="key-point">• market: volatility</div>
+                    </div>
+                    
+                    <div class="news-date">2026-02-20</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <footer>
+            <p>数据来源：Bloomberg、Goldman Sachs、New York Times、Wall Street Journal、Reuters</p>
+            <p>免责声明：本网站仅汇总公开信息，不构成投资建议。投资有风险，入市需谨慎。</p>
+            <div class="footer-links">
+                <a href="https://finance-monitor.vercel.app/" class="footer-link">首页</a>
+                <a href="https://finance-monitor.vercel.app/news.html" class="footer-link">完整列表</a>
+                <a href="https://finance-monitor.vercel.app/macro.html" class="footer-link">宏观数据</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 自动刷新页面（每小时）
+        setTimeout(() => {
+            location.reload();
+        }, 3600000);
+    </script>
+</body>
+</html>

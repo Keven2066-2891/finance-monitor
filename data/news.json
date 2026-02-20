@@ -1,0 +1,202 @@
+[
+  {
+    "id": "news-1",
+    "title": "美联储宣布维持利率不变，市场预期落空",
+    "source": "Bloomberg",
+    "url": "https://www.bloomberg.com/news/fed-rate",
+    "category": "macro",
+    "date": "2026-02-20",
+    "summary": "美联储联邦公开市场委员会(FOMC)宣布维持联邦基金利率在5.25%-5.50%区间不变，与市场预期相符。但暗示未来可能降息。",
+    "keyPoints": [
+      {
+        "category": "macro",
+        "keyword": "Fed"
+      },
+      {
+        "category": "macro",
+        "keyword": "interest rate"
+      }
+    ],
+    "impact": "high"
+  },
+  {
+    "id": "news-2",
+    "title": "高盛发布2026年Q1财报预期，预计华尔街银行盈利超预期",
+    "source": "Goldman Sachs",
+    "url": "https://www.goldmansachs.com/insights/q1-earnings",
+    "category": "corporate",
+    "date": "2026-02-20",
+    "summary": "高盛分析师发布报告，预计2026年第一季度华尔街主要银行将保持强劲盈利能力，得益于利率环境改善和投行业务回暖。",
+    "keyPoints": [
+      {
+        "category": "corporate",
+        "keyword": "earnings"
+      },
+      {
+        "category": "corporate",
+        "keyword": "guidance"
+      }
+    ],
+    "impact": "high"
+  },
+  {
+    "id": "news-3",
+    "title": "纽约时报：美国通胀持续放缓，美联储年中可能考虑降息",
+    "source": "New York Times",
+    "url": "https://www.nytimes.com/business/inflation-slowdown",
+    "category": "macro",
+    "date": "2026-02-20",
+    "summary": "纽约时报发布分析文章，指出美国通胀数据持续放缓趋势，强化了美联储可能在年中开始降息的市场预期。",
+    "keyPoints": [
+      {
+        "category": "macro",
+        "keyword": "inflation"
+      },
+      {
+        "category": "macro",
+        "keyword": "Fed"
+      }
+    ],
+    "impact": "high"
+  },
+  {
+    "id": "news-4",
+    "title": "华尔街日报：科技巨头财报季开启，AI 投资成重点",
+    "source": "Wall Street Journal",
+    "url": "https://www.wsj.com/tech-earnings-season",
+    "category": "corporate",
+    "date": "2026-02-20",
+    "summary": "华尔街日报报道，本季度美国科技巨头的财报季正式开启，AI 相关投资成为分析师和投资者关注的重点领域。",
+    "keyPoints": [
+      {
+        "category": "corporate",
+        "keyword": "earnings"
+      },
+      {
+        "category": "market",
+        "keyword": "AI"
+      }
+    ],
+    "impact": "medium"
+  },
+  {
+    "id": "news-5",
+    "title": "路透社：欧洲央行维持利率不变，但暗示夏季可能降息",
+    "source": "Reuters",
+    "url": "https://www.reuters.com/ecb-interest-rate",
+    "category": "macro",
+    "date": "2026-02-20",
+    "summary": "路透社报道，欧洲央行维持主要再融资利率在4.5%不变，但行长拉加德暗示如果通胀继续放缓，可能在夏季开始降息周期。",
+    "keyPoints": [
+      {
+        "category": "macro",
+        "keyword": "interest rate"
+      },
+      {
+        "category": "macro",
+        "keyword": "ECB"
+      }
+    ],
+    "impact": "medium"
+  },
+  {
+    "id": "news-6",
+    "title": "彭博社：美股市场震荡，投资者关注财报数据",
+    "source": "Bloomberg",
+    "url": "https://www.bloomberg.com/markets/us-stocks",
+    "category": "market",
+    "date": "2026-02-20",
+    "summary": "彭博社报道，美国股市今日出现震荡，主要受到投资者对即将发布的大型公司财报数据的关注影响。标普500指数和纳斯达克指数波动加剧。",
+    "keyPoints": [
+      {
+        "category": "market",
+        "keyword": "stocks"
+      },
+      {
+        "category": "market",
+        "keyword": "earnings"
+      }
+    ],
+    "impact": "medium"
+  },
+  {
+    "id": "news-7",
+    "title": "摩根大通：美联储降息预期推动债券市场上涨",
+    "source": "JPMorgan",
+    "url": "https://www.jpmorgan.com/insights/bond-market-outlook",
+    "category": "market",
+    "date": "2026-02-20",
+    "summary": "摩根大通分析师发布报告，指出市场对美联储降息的预期正在推动债券市场价格上涨，特别是长期国债收益率下降趋势明显。",
+    "keyPoints": [
+      {
+        "category": "macro",
+        "keyword": "Fed"
+      },
+      {
+        "category": "market",
+        "keyword": "bonds"
+      }
+    ],
+    "impact": "high"
+  },
+  {
+    "id": "news-8",
+    "title": "美国银行：全球经济放缓，新兴市场面临挑战",
+    "source": "Bank of America",
+    "url": "https://www.bankofamerica.com/insights/global-slowdown",
+    "category": "macro",
+    "date": "2026-02-20",
+    "summary": "美国银行全球经济研究团队发布报告，指出全球经济增速放缓趋势明显，新兴市场面临增长放缓和资本外流双重挑战。",
+    "keyPoints": [
+      {
+        "category": "macro",
+        "keyword": "GDP"
+      },
+      {
+        "category": "macro",
+        "keyword": "emerging markets"
+      }
+    ],
+    "impact": "high"
+  },
+  {
+    "id": "news-9",
+    "title": "花旗集团：企业债违约风险上升，投资者需保持警惕",
+    "source": "Citigroup",
+    "url": "https://www.citigroup.com/insights/corporate-debt-risk",
+    "category": "market",
+    "date": "2026-02-20",
+    "summary": "花旗集团分析师警告，随着利率环境持续，企业债违约风险正在上升，投资者需要保持警惕，建议优化投资组合配置。",
+    "keyPoints": [
+      {
+        "category": "market",
+        "keyword": "debt"
+      },
+      {
+        "category": "market",
+        "keyword": "risk"
+      }
+    ],
+    "impact": "medium"
+  },
+  {
+    "id": "news-10",
+    "title": "富国银行：加密货币市场波动加剧，机构投资者参与度提升",
+    "source": "Wells Fargo",
+    "url": "https://www.wellsfargo.com/insights/crypto-market",
+    "category": "market",
+    "date": "2026-02-20",
+    "summary": "富国银行数字资产研究团队指出，加密货币市场波动性持续加剧，但机构投资者的参与度正在提升，市场成熟度不断提高。",
+    "keyPoints": [
+      {
+        "category": "market",
+        "keyword": "crypto"
+      },
+      {
+        "category": "market",
+        "keyword": "volatility"
+      }
+    ],
+    "impact": "low"
+  }
+]

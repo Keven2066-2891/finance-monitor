@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="权威媒体财经信息汇总，重点关注宏观信息（美联储、利率、财报等）">
-    <title>全球财经信息监控 - 财经日历</title>
+    <title>太空里的任务系统</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -18,800 +13,302 @@
             padding: 20px;
             color: #fff;
         }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 30px; color: #4fc3f7; }
         
-        /* 布局 */
-        .main-container {
-            display: flex;
-            gap: 20px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-        
-        /* 左侧时间线 */
-        .sidebar {
-            width: 280px;
-            flex-shrink: 0;
-            position: sticky;
-            top: 20px;
-            height: fit-content;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-        }
-        
-        .sidebar-section {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .sidebar-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #4fc3f7;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .date-list {
-            list-style: none;
-        }
-        
-        .date-item {
-            padding: 10px 15px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .date-item:hover {
-            background: rgba(79, 195, 247, 0.2);
-        }
-        
-        .date-item.active {
-            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
-            color: #000;
-            font-weight: bold;
-        }
-        
-        .date-item .count {
-            background: rgba(255,255,255,0.2);
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 12px;
-        }
-        
-        /* 关键事件时间线 */
-        .timeline {
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #4fc3f7, #7c4dff);
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding: 12px 0;
-            padding-left: 20px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -23px;
-            top: 18px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #4fc3f7;
-            border: 2px solid #1a1a2e;
-        }
-        
-        .timeline-item.past::before {
-            background: #7c4dff;
-        }
-        
-        .timeline-item.future::before {
-            background: #4caf50;
-        }
-        
-        .timeline-date {
-            font-size: 12px;
-            color: #4fc3f7;
-            margin-bottom: 4px;
-        }
-        
-        .timeline-title {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-        
-        .timeline-desc {
-            font-size: 12px;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .timeline-tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            margin-top: 4px;
-        }
-        
-        .tag-cpi { background: #ff5722; }
-        .tag-fed { background: #2196f3; }
-        .tag-election { background: #9c27b0; }
-        .tag-earnings { background: #4caf50; }
-        .tag-rate { background: #ff9800; }
-        
-        /* 主内容区 */
-        .content {
-            flex: 1;
-            min-width: 0;
-        }
-        
-        .container {
-            background: rgba(255,255,255,0.95);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            color: #333;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        
-        h1 {
-            color: #1a1a2e;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            color: #666;
-            font-size: 16px;
-        }
-        
-        .update-time {
-            color: #999;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        
-        /* 统计卡片 */
+        /* 任务统计 */
         .stats {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 30px;
             margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 5px;
-            flex-wrap: wrap;
-            gap: 15px;
         }
-        
         .stat-item {
             text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
         }
+        .stat-value { font-size: 32px; font-weight: bold; color: #4fc3f7; }
+        .stat-label { color: #aaa; margin-top: 5px; }
         
-        .stat-label {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        
-        .stat-value {
-            color: #1a1a2e;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        /* 筛选标签 */
-        .filter-bar {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            padding: 8px 16px;
+        /* 分类标签 */
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
             border: none;
             border-radius: 20px;
+            color: #fff;
             cursor: pointer;
-            font-size: 14px;
             transition: all 0.3s;
-            background: #e0e0e0;
-            color: #666;
+        }
+        .tab:hover, .tab.active { background: #4fc3f7; color: #000; }
+        
+        /* 任务列表 */
+        .task-list { list-style: none; }
+        .task-item {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+        .task-item:hover { transform: translateX(5px); }
+        .task-item.done { opacity: 0.6; }
+        .task-item.done .task-title { text-decoration: line-through; }
+        
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .task-content { flex: 1; }
+        .task-title { font-weight: bold; margin-bottom: 5px; }
+        .task-meta { font-size: 12px; color: #666; }
+        .task-tag {
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            color: #fff;
+        }
+        .tag-high { background: #f44336; }
+        .tag-medium { background: #ff9800; }
+        .tag-low { background: #4caf50; }
+        .tag-project { background: #2196f3; }
+        
+        .task-date {
+            font-size: 12px;
+            color: #999;
+            white-space: nowrap;
         }
         
-        .filter-btn:hover, .filter-btn.active {
-            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+        .task-priority {
+            width: 8px;
+            height: 40px;
+            border-radius: 4px;
+        }
+        .priority-high { background: #f44336; }
+        .priority-medium { background: #ff9800; }
+        .priority-low { background: #4caf50; }
+        
+        /* 添加任务 */
+        .add-task {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .add-task input, .add-task select {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .add-task input[type="text"] { width: 60%; }
+        .add-task button {
+            padding: 10px 20px;
+            background: #4fc3f7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
             color: #000;
             font-weight: bold;
         }
+        .add-task button:hover { background: #29b6f6; }
         
-        .section {
-            margin-bottom: 30px;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            color: #1a1a2e;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #4fc3f7;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .news-item {
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background: white;
-            transition: all 0.3s ease;
-        }
-        
-        .news-item:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            transform: translateY(-3px);
-        }
-        
-        .news-item.hidden {
-            display: none;
-        }
-        
-        .news-source {
-            color: #4fc3f7;
-            font-weight: bold;
-            font-size: 12px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .news-source-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: white;
-        }
-        
-        .news-title {
-            color: #1a1a2e;
-            font-size: 16px;
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-        
-        .news-meta {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .news-category {
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        .category-macro { background: #ffebee; color: #c62828; }
-        .category-corporate { background: #e3f2fd; color: #1565c0; }
-        .category-market { background: #fff3e0; color: #d97706; }
-        .category-general { background: #f8f9fa; color: #6c757d; }
-        
-        .news-impact {
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-        }
-        
-        .impact-high { background: #f44336; color: white; }
-        .impact-medium { background: #ff9800; color: white; }
-        .impact-low { background: #4caf50; color: white; }
-        
-        .news-summary {
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        
-        .key-points {
-            margin-top: 10px;
-            padding: 10px;
-            background: #fafafa;
-            border-left: 3px solid #4fc3f7;
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .key-point {
-            color: #666;
-            font-size: 12px;
-            margin-bottom: 3px;
-        }
-        
-        .news-date {
-            color: #999;
-            font-size: 12px;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 2px solid #f0f0f0;
-            color: #999;
-            font-size: 14px;
-        }
-        
-        .footer-links {
-            margin-top: 20px;
-        }
-        
-        .footer-link {
-            color: #4fc3f7;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        
-        .footer-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* 响应式 */
-        @media (max-width: 900px) {
-            .main-container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                position: static;
-                max-height: none;
-            }
-        }
+        footer { text-align: center; margin-top: 40px; color: #666; font-size: 12px; }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <!-- 左侧时间线 -->
-        <aside class="sidebar">
-            <!-- 日期时间线 -->
-            <div class="sidebar-section">
-                <div class="sidebar-title">
-                    📅 日期选择
-                </div>
-                <ul class="date-list" id="dateList">
-                    <li class="date-item active" data-date="2026-02-21">
-                        <span>今天 (2/21)</span>
-                        <span class="count">5</span>
-                    </li>
-                    <li class="date-item" data-date="2026-02-20">
-                        <span>昨天 (2/20)</span>
-                        <span class="count">10</span>
-                    </li>
-                    <li class="date-item" data-date="2026-02-19">
-                        <span>2/19</span>
-                        <span class="count">8</span>
-                    </li>
-                    <li class="date-item" data-date="2026-02-18">
-                        <span>2/18</span>
-                        <span class="count">6</span>
-                    </li>
-                    <li class="date-item" data-date="2026-02-17">
-                        <span>2/17</span>
-                        <span class="count">7</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- 关键事件时间线 -->
-            <div class="sidebar-section">
-                <div class="sidebar-title">
-                    🎯 关键事件日历
-                </div>
-                <div class="timeline">
-                    <!-- 已过期事件 -->
-                    <div class="timeline-item past">
-                        <div class="timeline-date">2026-02-12</div>
-                        <div class="timeline-title">美国CPI数据公布</div>
-                        <div class="timeline-desc">1月CPI同比增长3.2%</div>
-                        <span class="timeline-tag tag-cpi">CPI</span>
-                    </div>
-                    
-                    <div class="timeline-item past">
-                        <div class="timeline-date">2026-02-14</div>
-                        <div class="timeline-title">美联储主席鲍威尔证词</div>
-                        <div class="timeline-desc">国会听证会发言</div>
-                        <span class="timeline-tag tag-fed">美联储</span>
-                    </div>
-                    
-                    <!-- 当前/即将到来 -->
-                    <div class="timeline-item">
-                        <div class="timeline-date">2026-02-21 (周五)</div>
-                        <div class="timeline-title">美国PCE物价指数</div>
-                        <div class="timeline-desc">美联储最关注的通胀指标</div>
-                        <span class="timeline-tag tag-cpi">CPI</span>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2026-02-26 (周三)</div>
-                        <div class="timeline-title">美联储会议纪要</div>
-                        <div class="timeline-desc">1月FOMC会议详细讨论</div>
-                        <span class="timeline-tag tag-fed">美联储</span>
-                    </div>
-                    
-                    <div class="timeline-item future">
-                        <div class="timeline-date">2026-03月初</div>
-                        <div class="timeline-title">非农就业数据</div>
-                        <div class="timeline-desc">2月就业报告</div>
-                        <span class="timeline-tag tag-rate">就业</span>
-                    </div>
-                    
-                    <div class="timeline-item future">
-                        <div class="timeline-date">2026-03-07 (周五)</div>
-                        <div class="timeline-title">苹果Q1财报</div>
-                        <div class="timeline-desc">科技巨头财报季开启</div>
-                        <span class="timeline-tag tag-earnings">财报</span>
-                    </div>
-                    
-                    <div class="timeline-item future">
-                        <div class="timeline-date">2026-03-12 (周四)</div>
-                        <div class="timeline-title">美国CPI数据</div>
-                        <div class="timeline-desc">2月CPI同比增长预期</div>
-                        <span class="timeline-tag tag-cpi">CPI</span>
-                    </div>
-                    
-                    <div class="timeline-item future">
-                        <div class="timeline-date">2026-03-19 (周四)</div>
-                        <div class="timeline-title">美联储利率决议</div>
-                        <div class="timeline-desc">FOMC会议，预计维持利率</div>
-                        <span class="timeline-tag tag-fed">美联储</span>
-                    </div>
-                    
-                    <div class="timeline-item future">
-                        <div class="timeline-date">2026-04月初</div>
-                        <div class="timeline-title">美国大选初选</div>
-                        <div class="timeline-desc">2026年中期选举初选</div>
-                        <span class="timeline-tag tag-election">大选</span>
-                    </div>
-                    
-                    <div class="timeline-item future">
-                        <div class="timeline-date">2026-04-30</div>
-                        <div class="timeline-title">苹果Q2财报</div>
-                        <div class="timeline-desc">财年Q2业绩发布</div>
-                        <span class="timeline-tag tag-earnings">财报</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
+    <div class="container">
+        <h1>🦊 太空里的任务系统</h1>
         
-        <!-- 主内容 -->
-        <main class="content">
-            <div class="container">
-                <header>
-                    <h1>🏛️ 全球财经信息监控</h1>
-                    <p class="subtitle">权威媒体财经信息汇总，重点关注宏观信息（美联储降息、大公司财报、大公司降息等）</p>
-                    <p class="update-time">更新时间：2026/2/21 08:00:00</p>
-                </header>
-
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-label">总信息数</div>
-                        <div class="stat-value">36</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">宏观信息</div>
-                        <div class="stat-value">15</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">公司财报</div>
-                        <div class="stat-value">12</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">市场动态</div>
-                        <div class="stat-value">9</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">关键事件</div>
-                        <div class="stat-value">9</div>
-                    </div>
-                </div>
-
-                <!-- 筛选按钮 -->
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all">全部</button>
-                    <button class="filter-btn" data-filter="macro">宏观</button>
-                    <button class="filter-btn" data-filter="corporate">财报</button>
-                    <button class="filter-btn" data-filter="market">市场</button>
-                    <button class="filter-btn" data-filter="high">高影响</button>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">📊 最新财经信息</h2>
-                    <div class="news-grid" id="newsGrid">
-                        
-                        <!-- 2026-02-21 新闻 -->
-                        <div class="news-item" data-date="2026-02-21" data-category="macro" data-impact="high">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#1a1a2e">B</span>
-                                Bloomberg
-                            </div>
-                            <h3 class="news-title">美联储理事支持3月降息，市场预期升温</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-macro">宏观</span>
-                                <span class="news-impact impact-high">高影响</span>
-                            </div>
-                            <p class="news-summary">美联储理事最新讲话支持3月降息，市场预期概率升至65%。</p>
-                            <div class="news-date">📅 2026-02-21</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-21" data-category="corporate" data-impact="high">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#4fc3f7">G</span>
-                                Goldman Sachs
-                            </div>
-                            <h3 class="news-title">高盛：AI投资持续升温，科技股仍是首选</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-corporate">财报</span>
-                                <span class="news-impact impact-high">高影响</span>
-                            </div>
-                            <p class="news-summary">高盛分析师维持科技股增持评级，AI相关投入将继续增加。</p>
-                            <div class="news-date">📅 2026-02-21</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-21" data-category="macro" data-impact="medium">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#ff5722">R</span>
-                                Reuters
-                            </div>
-                            <h3 class="news-title">欧洲央行：通胀压力减轻，夏季降息可期</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-macro">宏观</span>
-                                <span class="news-impact impact-medium">中影响</span>
-                            </div>
-                            <p class="news-summary">欧洲央行行长表示通胀压力持续缓解，夏季降息可能性增加。</p>
-                            <div class="news-date">📅 2026-02-21</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-21" data-category="market" data-impact="medium">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#9c27b0">W</span>
-                                Wall Street Journal
-                            </div>
-                            <h3 class="news-title">美股科技板块领涨，纳指创新高</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-market">市场</span>
-                                <span class="news-impact impact-medium">中影响</span>
-                            </div>
-                            <p class="news-summary">科技股上涨推动纳指突破历史新高，投资者情绪乐观。</p>
-                            <div class="news-date">📅 2026-02-21</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-21" data-category="corporate" data-impact="high">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#4caf50">J</span>
-                                JPMorgan
-                            </div>
-                            <h3 class="news-title">摩根大通：Q1盈利超预期，上调全年指引</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-corporate">财报</span>
-                                <span class="news-impact impact-high">高影响</span>
-                            </div>
-                            <p class="news-summary">摩根大通第一季度财报超预期，EPS同比增长15%，上调全年盈利指引。</p>
-                            <div class="news-date">📅 2026-02-21</div>
-                        </div>
-                        
-                        <!-- 2026-02-20 新闻 -->
-                        <div class="news-item" data-date="2026-02-20" data-category="macro" data-impact="high">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#1a1a2e">B</span>
-                                Bloomberg
-                            </div>
-                            <h3 class="news-title">美联储宣布维持利率不变，市场预期落空</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-macro">宏观</span>
-                                <span class="news-impact impact-high">高影响</span>
-                            </div>
-                            <p class="news-summary">美联储联邦公开市场委员会(FOMC)宣布维持联邦基金利率在5.25%-5.50%区间不变。</p>
-                            <div class="news-date">📅 2026-02-20</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-20" data-category="corporate" data-impact="high">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#4fc3f7">G</span>
-                                Goldman Sachs
-                            </div>
-                            <h3 class="news-title">高盛发布2026年Q1财报预期，预计华尔街银行盈利超预期</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-corporate">财报</span>
-                                <span class="news-impact impact-high">高影响</span>
-                            </div>
-                            <p class="news-summary">高盛分析师预计2026年第一季度华尔街主要银行将保持强劲盈利能力。</p>
-                            <div class="news-date">📅 2026-02-20</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-20" data-category="macro" data-impact="high">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#ff5722">N</span>
-                                New York Times
-                            </div>
-                            <h3 class="news-title">纽约时报：美国通胀持续放缓，美联储年中可能考虑降息</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-macro">宏观</span>
-                                <span class="news-impact impact-high">高影响</span>
-                            </div>
-                            <p class="news-summary">纽约时报发布分析文章，指出美国通胀数据持续放缓趋势。</p>
-                            <div class="news-date">📅 2026-02-20</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-20" data-category="corporate" data-impact="medium">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#9c27b0">W</span>
-                                Wall Street Journal
-                            </div>
-                            <h3 class="news-title">华尔街日报：科技巨头财报季开启，AI 投资成重点</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-corporate">财报</span>
-                                <span class="news-impact impact-medium">中影响</span>
-                            </div>
-                            <p class="news-summary">本季度美国科技巨头的财报季正式开启，AI 相关投资成为关注重点。</p>
-                            <div class="news-date">📅 2026-02-20</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-20" data-category="macro" data-impact="medium">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#ff5722">R</span>
-                                Reuters
-                            </div>
-                            <h3 class="news-title">路透社：欧洲央行维持利率不变，但暗示夏季可能降息</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-macro">宏观</span>
-                                <span class="news-impact impact-medium">中影响</span>
-                            </div>
-                            <p class="news-summary">欧洲央行维持主要再融资利率在4.5%不变，但暗示可能在夏季开始降息。</p>
-                            <div class="news-date">📅 2026-02-20</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-20" data-category="market" data-impact="medium">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#1a1a2e">B</span>
-                                Bloomberg
-                            </div>
-                            <h3 class="news-title">彭博社：美股市场震荡，投资者关注财报数据</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-market">市场</span>
-                                <span class="news-impact impact-medium">中影响</span>
-                            </div>
-                            <p class="news-summary">美国股市今日出现震荡，主要受到投资者对即将发布的大型公司财报数据的关注。</p>
-                            <div class="news-date">📅 2026-02-20</div>
-                        </div>
-                        
-                        <div class="news-item" data-date="2026-02-20" data-category="market" data-impact="high">
-                            <div class="news-source">
-                                <span class="news-source-icon" style="background:#4caf50">J</span>
-                                JPMorgan
-                            </div>
-                            <h3 class="news-title">摩根大通：美联储降息预期推动债券市场上涨</h3>
-                            <div class="news-meta">
-                                <span class="news-category category-market">市场</span>
-                                <span class="news-impact impact-high">高影响</span>
-                            </div>
-                            <p class="news-summary">市场对美联储降息的预期正在推动债券市场价格上涨，长期国债收益率下降。</p>
-                            <div class="news-date">📅 2026-02-20</div>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <footer>
-                    <p>数据来源：Bloomberg、Goldman Sachs、New York Times、Wall Street Journal、Reuters</p>
-                    <p>免责声明：本网站仅汇总公开信息，不构成投资建议。投资有风险，入市需谨慎。</p>
-                </footer>
+        <!-- 任务统计 -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="total">0</div>
+                <div class="stat-label">总任务</div>
             </div>
-        </main>
+            <div class="stat-item">
+                <div class="stat-value" id="done">0</div>
+                <div class="stat-label">已完成</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="pending">0</div>
+                <div class="stat-label">待完成</div>
+            </div>
+        </div>
+        
+        <!-- 分类筛选 -->
+        <div class="tabs">
+            <button class="tab active" data-filter="all">全部</button>
+            <button class="tab" data-filter="project">项目</button>
+            <button class="tab" data-filter="daily">日常</button>
+            <button class="tab" data-filter="long-term">长期</button>
+        </div>
+        
+        <!-- 任务列表 -->
+        <ul class="task-list" id="taskList">
+            <!-- 任务将通过 JavaScript 渲染 -->
+        </ul>
+        
+        <!-- 添加任务 -->
+        <div class="add-task">
+            <h3 style="margin-bottom: 15px;">添加新任务</h3>
+            <input type="text" id="newTaskTitle" placeholder="任务标题...">
+            <select id="newTaskPriority">
+                <option value="low">低优先级</option>
+                <option value="medium">中优先级</option>
+                <option value="high">高优先级</option>
+            </select>
+            <select id="newTaskCategory">
+                <option value="project">项目</option>
+                <option value="daily">日常</option>
+                <option value="long-term">长期</option>
+            </select>
+            <button onclick="addTask()">添加任务</button>
+        </div>
+        
+        <footer>
+            <p>更新时间：<span id="updateTime">加载中...</span></p>
+            <p>小狐狸的任务管理系统 🦊</p>
+        </footer>
     </div>
 
     <script>
-        // 日期筛选
-        const dateItems = document.querySelectorAll('.date-item');
-        const newsItems = document.querySelectorAll('.news-item');
-        
-        dateItems.forEach(item => {
-            item.addEventListener('click', () => {
-                // 更新激活状态
-                dateItems.forEach(d => d.classList.remove('active'));
-                item.classList.add('active');
+        // 任务数据
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [
+            // 这里的任务会被JavaScript动态加载
+        ];
+
+        // 从本地文件加载任务
+        async function loadTasks() {
+            try {
+                const response = await fetch('tasks.json');
+                const fileTasks = await response.json();
+                if (fileTasks.length > 0) {
+                    tasks = fileTasks;
+                    saveTasks();
+                }
+            } catch (e) {
+                console.log('使用本地存储的任务');
+            }
+            renderTasks();
+        }
+
+        // 保存任务到本地
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            document.getElementById('updateTime').textContent = new Date().toLocaleString('zh-CN');
+        }
+
+        // 渲染任务列表
+        function renderTasks(filter = 'all') {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = '';
+            
+            let total = 0, done = 0;
+            
+            tasks.forEach((task, index) => {
+                if (filter !== 'all' && task.category !== filter) return;
                 
-                const selectedDate = item.dataset.date;
+                total++;
+                if (task.done) done++;
                 
-                // 筛选新闻
-                newsItems.forEach(news => {
-                    if (selectedDate === 'all' || news.dataset.date === selectedDate) {
-                        news.classList.remove('hidden');
-                    } else {
-                        news.classList.add('hidden');
-                    }
-                });
+                const li = document.createElement('li');
+                li.className = `task-item ${task.done ? 'done' : ''}`;
+                li.innerHTML = `
+                    <div class="task-priority priority-${task.priority}"></div>
+                    <input type="checkbox" class="task-checkbox" 
+                        ${task.done ? 'checked' : ''} 
+                        onchange="toggleTask(${index})">
+                    <div class="task-content">
+                        <div class="task-title">${task.title}</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-${task.category}">${getCategoryName(task.category)}</span>
+                            ${task.project ? `<span>项目: ${task.project}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="task-date">${task.date}</div>
+                    <button onclick="deleteTask(${index})" style="background:red;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">删除</button>
+                `;
+                taskList.appendChild(li);
             });
-        });
-        
+            
+            // 更新统计
+            document.getElementById('total').textContent = tasks.length;
+            document.getElementById('done').textContent = tasks.filter(t => t.done).length;
+            document.getElementById('pending').textContent = tasks.filter(t => !t.done).length;
+        }
+
+        // 获取分类名称
+        function getCategoryName(category) {
+            const names = {
+                'project': '项目',
+                'daily': '日常',
+                'long-term': '长期'
+            };
+            return names[category] || category;
+        }
+
+        // 切换任务状态
+        function toggleTask(index) {
+            tasks[index].done = !tasks[index].done;
+            saveTasks();
+            renderTasks(document.querySelector('.tab.active').dataset.filter);
+        }
+
+        // 删除任务
+        function deleteTask(index) {
+            if (confirm('确定删除这个任务吗？')) {
+                tasks.splice(index, 1);
+                saveTasks();
+                renderTasks(document.querySelector('.tab.active').dataset.filter);
+            }
+        }
+
+        // 添加任务
+        function addTask() {
+            const title = document.getElementById('newTaskTitle').value;
+            const priority = document.getElementById('newTaskPriority').value;
+            const category = document.getElementById('newTaskCategory').value;
+            
+            if (!title) {
+                alert('请输入任务标题');
+                return;
+            }
+            
+            tasks.unshift({
+                title,
+                priority,
+                category,
+                done: false,
+                date: new Date().toLocaleDateString('zh-CN'),
+                createdAt: new Date().toISOString()
+            });
+            
+            document.getElementById('newTaskTitle').value = '';
+            saveTasks();
+            renderTasks(document.querySelector('.tab.active').dataset.filter);
+        }
+
         // 分类筛选
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // 更新激活状态
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const filter = btn.dataset.filter;
-                
-                // 筛选新闻
-                newsItems.forEach(news => {
-                    if (filter === 'all') {
-                        news.classList.remove('hidden');
-                    } else if (filter === 'high') {
-                        if (news.dataset.impact === 'high') {
-                            news.classList.remove('hidden');
-                        } else {
-                            news.classList.add('hidden');
-                        }
-                    } else {
-                        if (news.dataset.category === filter) {
-                            news.classList.remove('hidden');
-                        } else {
-                            news.classList.add('hidden');
-                        }
-                    }
-                });
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderTasks(tab.dataset.filter);
             });
         });
-        
-        // 自动刷新（每小时）
-        setTimeout(() => {
-            location.reload();
-        }, 3600000);
+
+        // 初始化
+        loadTasks();
     </script>
 </body>
 </html>
